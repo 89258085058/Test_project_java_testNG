@@ -8,22 +8,24 @@ import java.util.concurrent.TimeUnit;
 public class ApplicationManager {
     WebDriver wd;
 
-    private SeeionHelper seeionHelper;
-    private final NavigationHelper navigationHelper = new NavigationHelper();
-    private GroupHelper groupHelper;
+    public SeeionHelper seeionHelper;
+    public NavigationHelper navigationHelper;
+    public GroupHelper groupHelper;
 
     public void init() {
-        navigationHelper.wd = new FirefoxDriver();
-        navigationHelper.wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        navigationHelper.wd.get("http://localhost/addressbook/group.php");
-        groupHelper = new GroupHelper(navigationHelper.wd);
+        wd = new FirefoxDriver();
+        wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        wd.get("http://localhost/addressbook/group.php");
+        groupHelper = new GroupHelper(wd);
         seeionHelper = new SeeionHelper(wd);
+        navigationHelper = new NavigationHelper(wd);
         seeionHelper.login("admin", "secret");
     }
 
 
+
     public void stop() {
-        navigationHelper.wd.quit();
+        wd.quit();
     }
 
     public GroupHelper getGroupHelper() {
