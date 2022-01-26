@@ -24,6 +24,7 @@ public class HelpperBAse {
     }
 
 
+
     public boolean isAlert() {
         try {
             wd.switchTo().alert();
