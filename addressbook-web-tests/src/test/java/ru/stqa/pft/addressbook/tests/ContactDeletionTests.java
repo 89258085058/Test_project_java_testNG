@@ -3,21 +3,20 @@ package ru.stqa.pft.addressbook.tests;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.ContactData;
 
-public class ContactModificationTests extends  TestBase {
+
+public class ContactDeletionTests extends TestBase{
 
     @Test
-    public void testContactModifiction() {
+    public void testContactDeliteon() {
         app.getNavigationHelper().goToHomePage();
         if (! app.getContactHelper().isThereContact()) {
+            app.getNavigationHelper().goToContactPage();
             app.getContactHelper().createContact(new ContactData("123","123" ,"123",
                     "123","123", "123", "123", "123", "123", "123"));
         }
         app.getContactHelper().selectContact();
-        app.getContactHelper().initContactModification();
-        app.getContactHelper().fillContactForm(new ContactData("555","555" ,"555",
-                "555","555", "555", "555", "555", "555", "555"));
-        app.getContactHelper().submitContactModifivation();
-        app.getContactHelper().reternToContactPage();
-    }
+        app.getContactHelper().deleteContactSelected();
+        app.getNavigationHelper().goToHomePage();
 
+    }
 }

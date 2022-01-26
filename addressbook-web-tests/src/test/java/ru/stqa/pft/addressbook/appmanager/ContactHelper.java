@@ -32,15 +32,16 @@ public class ContactHelper extends  HelpperBAse {
         type(By.name("email3"), contactData.getEmail3());
     }
 
-    public boolean isThereGroup() {
+    public boolean isThereContact() {
         return isElementPresent(By.name("selected[]"));
     }
 
-//
-//    public void deleteSelected() {
-//        click(By.name("delete"));
-//    }
-//
+
+    public void deleteContactSelected() {
+        click(By.xpath("(//*[@id='maintable']//img[@title='Edit'])[1]"));
+        click(By.xpath("//*[@id='content']//input[@value='Delete']"));
+    }
+
     public void selectContact() {
         click(By.name("selected[]"));
     }
@@ -58,10 +59,5 @@ public class ContactHelper extends  HelpperBAse {
         submitContactCreation();
         reternToContactPage();
     }
-//
-//    public boolean isThereGroup() {
-//        return isElementPresent(By.name("selected[]"));
-//    }
-//
 
 }
