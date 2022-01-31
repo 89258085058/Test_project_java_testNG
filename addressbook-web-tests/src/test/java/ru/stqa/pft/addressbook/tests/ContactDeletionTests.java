@@ -6,17 +6,17 @@ import ru.stqa.pft.addressbook.model.ContactData;
 
 public class ContactDeletionTests extends TestBase{
 
-    @Test
+    @Test(enabled = false)
     public void testContactDeliteon() {
-        app.getNavigationHelper().goToHomePage();
+        app.goTo().goToHomePage();
         if (! app.getContactHelper().isThereContact()) {
-            app.getNavigationHelper().goToContactPage();
+            app.goTo().goToContactPage();
             app.getContactHelper().createContact(new ContactData("123","123" ,"123",
                     "123","123", "123", "123", "123", "123", "123"));
         }
         app.getContactHelper().selectContact();
         app.getContactHelper().deleteContactSelected();
-        app.getNavigationHelper().goToHomePage();
+        app.goTo().goToHomePage();
 
     }
 }

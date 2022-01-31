@@ -5,9 +5,9 @@ import ru.stqa.pft.addressbook.model.ContactData;
 
 public class ContactModificationTests extends  TestBase {
 
-    @Test
+    @Test(enabled = false)
     public void testContactModifiction() {
-        app.getNavigationHelper().goToHomePage();
+        app.goTo().goToHomePage();
         if (! app.getContactHelper().isThereContact()) {
             app.getContactHelper().createContact(new ContactData("123","123" ,"123",
                     "123","123", "123", "123", "123", "123", "123"));
