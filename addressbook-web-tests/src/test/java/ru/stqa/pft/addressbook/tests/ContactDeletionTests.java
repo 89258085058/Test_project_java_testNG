@@ -26,4 +26,5 @@ public class ContactDeletionTests extends TestBase {
         app.goTo().goToHomePage();
 
     }
+
 }
